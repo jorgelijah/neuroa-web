@@ -21,10 +21,10 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 backdrop-nav ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-background/80 border-b border-border shadow-soft"
-          : "bg-transparent"
+          ? "bg-[#FFF9F2]/95 border-b border-slate-200 shadow-sm backdrop-blur-md"
+          : "bg-[#FFF9F2] border-b border-transparent"
       }`}
     >
       <div className="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
@@ -72,7 +72,7 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {open && (
-        <div className="md:hidden bg-background/95 backdrop-nav border-b border-border px-6 py-4 flex flex-col gap-4">
+        <div className="md:hidden bg-[#FFF9F2] border-b border-slate-100 px-6 py-4 flex flex-col gap-4">
           {links.map((l) => (
             <a
               key={l.href}

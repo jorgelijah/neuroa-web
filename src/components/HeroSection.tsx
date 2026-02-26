@@ -2,7 +2,7 @@ export default function HeroSection() {
   return (
     <section
       id="inicio"
-      className="relative min-h-[80vh] flex items-center justify-center overflow-hidden pt-16"
+      className="relative min-h-[80vh] flex items-center justify-center overflow-hidden pt-32 md:pt-40"
     >
       {/* Decorative blobs */}
       <div
@@ -16,7 +16,7 @@ export default function HeroSection() {
 
       <div className="relative max-w-4xl mx-auto px-6 text-center">
         {/* Badge */}
-        <div className="inline-flex items-center gap-2 bg-accent text-accent-foreground text-xs font-semibold px-4 py-1.5 rounded-full mb-8 border border-blue-light/40">
+        <div className="inline-flex items-center gap-2 bg-accent text-accent-foreground text-xs font-semibold px-4 py-1.5 rounded-full mb-8 mt-4 md:mt-0 border border-blue-light/40">
           <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
           Psicología virtual · Basada en evidencia
         </div>
