@@ -1,0 +1,27 @@
+import Navbar from "@/components/Navbar";
+import HeroSection from "@/components/HeroSection";
+import MetodoSection from "@/components/MetodoSection";
+import ServiciosSection from "@/components/ServiciosSection";
+import SobreMiSection from "@/components/SobreMiSection";
+import FaqSection from "@/components/FaqSection";
+import Footer from "@/components/Footer";
+import WhatsAppFab from "@/components/WhatsAppFab";
+
+const Index = () => {
+  return (
+    <div className="min-h-screen bg-background">
+      <Navbar />
+      <main>
+        <HeroSection />
+        <MetodoSection />
+        <ServiciosSection />
+        <SobreMiSection />
+        <FaqSection />
+      </main>
+      <Footer />
+      <WhatsAppFab />
+    </div>
+  );
+};
+
+export default Index;

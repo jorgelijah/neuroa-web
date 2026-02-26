@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Neuroa Brand Colors */
+    --background: 37 100% 97%;        /* #FFF9F2 crema cálido */
+    --foreground: 0 0% 5%;            /* #0D0D0D */
+
+    --card: 37 100% 97%;
+    --card-foreground: 0 0% 5%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 5%;
+
+    --primary: 222 76% 42%;           /* #1A52C1 azul */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 196 73% 75%;         /* #91DBF0 acento */
+    --secondary-foreground: 0 0% 5%;
+
+    --muted: 37 40% 93%;
+    --muted-foreground: 0 0% 40%;
+
+    --accent: 196 73% 93%;            /* Light accent bg */
+    --accent-foreground: 222 76% 30%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 37 20% 88%;
+    --input: 37 20% 88%;
+    --ring: 222 76% 42%;
+
+    --radius: 1rem;
+
+    /* Custom Neuroa tokens */
+    --cream: 37 100% 97%;
+    --cream-deep: 37 50% 94%;
+    --blue-main: 222 76% 42%;
+    --blue-light: 196 73% 75%;
+    --blue-soft: 196 73% 93%;
+
+    --shadow-soft: 0 4px 24px 0 hsl(222 76% 42% / 0.08);
+    --shadow-card: 0 2px 16px 0 hsl(222 76% 42% / 0.10);
+    --shadow-button: 0 4px 16px 0 hsl(222 76% 42% / 0.25);
+
+    --gradient-hero: linear-gradient(135deg, hsl(37 100% 97%) 0%, hsl(196 73% 93%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(196 73% 88%) 0%, hsl(222 76% 92%) 100%);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Bricolage Grotesque', 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    letter-spacing: -0.02em;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+
+  .gradient-accent {
+    background: var(--gradient-accent);
+  }
+
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+
+  .shadow-button {
+    box-shadow: var(--shadow-button);
+  }
+
+  .backdrop-nav {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+}
