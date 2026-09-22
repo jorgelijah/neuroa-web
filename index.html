@@ -22,24 +22,24 @@
   <div id="root"></div>
   <script type="module" src="/src/main.tsx"></script>
 
-  <!-- Formulario espejo estático para captura de Netlify Forms -->
-  <form name="screening" data-netlify="true" netlify-honeypot="bot-field" hidden>
-    <input type="text" name="bot-field" />
-    <input type="text" name="nombre" />
-    <input type="text" name="codigo_pais" />
-    <input type="text" name="whatsapp" />
-    <input type="text" name="energia_matutina" />
-    <input type="text" name="sobrecarga_mental" />
-    <input type="text" name="procrastinacion" />
-    <input type="text" name="distraccion_digital" />
-    <input type="text" name="situacion_laboral" />
-    <input type="text" name="red_apoyo" />
-    <input type="text" name="actividad_fisica" />
-    <input type="text" name="alimentacion_rutina" />
-    <input type="text" name="autocuidado" />
-    <input type="text" name="prioridad_principal" />
-    <input type="text" name="nivel_sobrecarga" />
-  </form>
+  <!-- Formulario oculto para que Netlify detecte los campos del screening -->
+<form name="screening" netlify netlify-honeypot="bot-field" hidden>
+  <input type="text" name="nombre" />
+  <input type="text" name="codigo_pais" />
+  <input type="text" name="whatsapp" />
+  <input type="text" name="nivel_sobrecarga" />
+  <input type="text" name="energia_matutina" />
+  <input type="text" name="sobrecarga_mental" />
+  <input type="text" name="procrastinacion" />
+  <input type="text" name="distraccion_digital" />
+  <input type="text" name="situacion_laboral" />
+  <input type="text" name="red_apoyo" />
+  <input type="text" name="actividad_fisica" />
+  <input type="text" name="alimentacion_rutina" />
+  <input type="text" name="autocuidado" />
+  <input type="text" name="prioridad_principal" />
+</form>
+
 </body>
 
 </html>

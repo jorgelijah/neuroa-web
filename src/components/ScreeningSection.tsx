@@ -204,7 +204,7 @@ export default function ScreeningSection() {
     if (errorTel) setErrorTel("");
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitError(null);
 
@@ -235,33 +235,21 @@ export default function ScreeningSection() {
     });
 
     try {
-      const res = await fetch("/", {
+      await fetch("/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: new URLSearchParams(payload).toString(),
       });
-
-      if (res.ok) {
-        setSubmitted(true);
-      } else {
-        console.error("Netlify form submission falló con código:", res.status);
-        if (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1") {
-          setSubmitted(true);
-        } else {
-          setSubmitError("Hubo un inconveniente al registrar tus datos. Por favor reintenta.");
-        }
-      }
     } catch (err) {
-      console.error("Error en conexión con Netlify Forms:", err);
-      if (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1") {
-        setSubmitted(true);
-      } else {
-        setSubmitError("No se pudo conectar con el servidor. Verifica tu conexión a internet.");
-      }
+      console.warn("Aviso de envío:", err);
     } finally {
+      // Siempre avanza a la pantalla de resultados
       setIsSubmitting(false);
+      setSubmitted(true);
     }
   };
+
+  
 
   const reiniciarTest = () => {
     setRespuestas({});
