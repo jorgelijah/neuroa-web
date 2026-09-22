@@ -1,166 +1,145 @@
-import { Check, Star, ArrowRight } from "lucide-react";
-
-const planClaridad = {
-  name: "Sesión de Claridad",
-  subtitle: "Paso 1: Evaluación y Mapa de Ruta",
-  price: "S/ 50",
-  duration: "45 min",
-  description:
-    "Es el punto de partida obligatorio. Aquí evaluamos tu caso y diseñamos la estructura de tu proceso antes de pasar a un programa.",
-  features: [
-    "Evaluación de motivo de consulta",
-    "Diseño de tu plan personalizado",
-    "Herramientas para empezar hoy mismo",
-    "Entrega de tu 'Protocolo de Diseño de Foco'",
-  ],
-  cta: "Agendar Sesión Inicial",
-};
-
-const programas = [
-  {
-    name: "Mente Clara",
-    subtitle: "Paso 2: Intervención",
-    price: "S/ 210",
-    duration: "+3 sesiones de trabajo",
-    badge: "Recomendado",
-    description:
-      "Proceso enfocado en resolver el objetivo definido en tu Sesión de Claridad.",
-    features: [
-      "3 sesiones de intervención (50 min)",
-      "Material de la 'Biblioteca de Recursos'",
-      "Soporte prioritario por WhatsApp",
-    ],
-    cta: "Ver programa",
-    highlight: true,
-  },
-  {
-    name: "Mente Clara Plus",
-    subtitle: "Paso 2: Consolidación",
-    price: "S/ 280",
-    duration: "+4 sesiones de trabajo",
-    description:
-      "Para casos que requieren un acompañamiento más extenso y cambios profundos.",
-    features: [
-      "4 sesiones de intervención (50 min)",
-      "Acceso total a guías y audios",
-      "Plan de prevención de recaídas",
-    ],
-    cta: "Ver programa",
-    highlight: false,
-  },
-];
+import { Check, ArrowRight, Clock, Calendar, ShieldCheck, Sparkles } from "lucide-react";
 
 export default function ServiciosSection() {
   return (
-    <section id="servicios" className="py-24 px-6 bg-[#FFF9F2]">
+    <section id="servicios" className="pt-8 pb-20 px-4 sm:px-6 bg-background">
       <div className="max-w-6xl mx-auto">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <p className="text-xs font-bold tracking-widest uppercase text-[#1A52C1] mb-3">
-            Tu Proceso
+        {/* Cabecera */}
+        <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-16">
+          <p className="text-xs font-bold tracking-widest uppercase text-primary mb-2">
+            Estructura del Acompañamiento
           </p>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-[#0D0D0D] mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-foreground tracking-tight mb-3">
             Comienza tu camino
           </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Un método estructurado para que sepas exactamente qué esperar en
-            cada etapa.
+          <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
+            Un método estructurado y transparente para que sepas con total certeza cómo iniciamos y cómo avanzamos en tu proceso.
           </p>
         </div>
 
-        {/* PASO 1: SESIÓN DE CLARIDAD */}
-        <div className="mb-16">
-          <div className="flex items-center gap-4 mb-8 justify-center">
-            <span className="bg-[#1A52C1] text-white w-8 h-8 rounded-full flex items-center justify-center font-bold">
-              1
-            </span>
-            <h3 className="text-2xl font-bold">Empieza por aquí</h3>
-          </div>
+        {/* Grid de 2 Fases */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 items-stretch max-w-5xl mx-auto mb-12">
 
-          <div className="max-w-3xl mx-auto bg-white rounded-3xl p-8 border-2 border-[#1A52C1] shadow-xl flex flex-col md:flex-row gap-8 items-center">
-            <div className="flex-1">
-              <span className="text-[#1A52C1] font-bold text-sm uppercase tracking-tighter">
-                {planClaridad.duration}
-              </span>
-              <h4 className="text-3xl font-extrabold mb-2">
-                {planClaridad.name}
-              </h4>
-              <p className="text-[#1A52C1] font-medium mb-4">
-                {planClaridad.subtitle}
-              </p>
-              <p className="text-muted-foreground mb-6">
-                {planClaridad.description}
-              </p>
-              <div className="text-4xl font-black mb-6">
-                {planClaridad.price}
-              </div>
+          {/* FASE 1: Sesión de Claridad (Punto de entrada único) */}
+          <div className="bg-white rounded-3xl p-6 sm:p-8 md:p-10 border-2 border-primary shadow-card flex flex-col justify-between relative">
+            <div className="absolute -top-3.5 left-6 sm:left-8 bg-primary text-primary-foreground text-[11px] font-bold uppercase tracking-wider px-3.5 py-1 rounded-full shadow-sm">
+              Paso 1: Punto de Partida
             </div>
-            <div className="flex-1 bg-slate-50 rounded-2xl p-6 w-full">
+
+            <div>
+              <div className="flex items-center justify-between mb-3 mt-2">
+                <h3 className="text-2xl font-bold text-foreground">Sesión de Claridad</h3>
+                <span className="text-xs font-semibold px-3 py-1 bg-accent text-accent-foreground rounded-full flex items-center gap-1.5">
+                  <Clock size={13} /> 45 - 60 min
+                </span>
+              </div>
+
+              <p className="text-muted-foreground text-xs sm:text-sm leading-relaxed mb-6">
+                Evaluación individual obligatoria antes de iniciar el tratamiento. Analizamos tu motivo de consulta, identificamos bloqueos conductuales y trazamos tu hoja de ruta personalizada.
+              </p>
+
+              <div className="flex items-baseline gap-2 mb-6">
+                <span className="text-4xl font-extrabold text-foreground">S/ 50</span>
+                <span className="text-xs text-muted-foreground font-medium">pago único de evaluación</span>
+              </div>
+
               <ul className="space-y-3 mb-8">
-                {planClaridad.features.map((f, j) => (
-                  <li key={j} className="flex items-start gap-2.5">
-                    <Check className="w-4 h-4 mt-1 text-[#1A52C1]" />
-                    <span className="text-sm font-medium">{f}</span>
+                {[
+                  "Evaluación clínica y conductual del problema",
+                  "Diseño inicial de tu mapa de ruta de objetivos",
+                  "Pautas prácticas inmediatas para tu día a día",
+                  "Entrega de tu protocolo inicial de foco y hábitos",
+                ].map((item, idx) => (
+                  <li key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-foreground">
+                    <Check className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+                    <span>{item}</span>
                   </li>
                 ))}
               </ul>
+            </div>
+
+            <div>
               <a
-                href="https://wa.me/51900172786?text=Hola,%20quiero%20empezar%20con%20la%20Sesión%20de%20Claridad"
-                className="w-full bg-[#1A52C1] text-white py-4 rounded-full font-bold text-center flex justify-center items-center gap-2 hover:scale-105 transition-transform"
+                href="https://wa.me/51900172786?text=Hola,%20quiero%20agendar%20mi%20Sesi%C3%B3n%20de%20Claridad"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground font-semibold py-3.5 sm:py-4 rounded-full shadow-button hover:opacity-90 hover:scale-[1.02] transition-all text-sm"
               >
-                {planClaridad.cta} <ArrowRight size={18} />
+                Agendar Sesión de Claridad <ArrowRight size={16} />
               </a>
+
+              {/* Microcopy de confianza y bajo riesgo */}
+              <div className="mt-3 text-center space-y-1">
+                <p className="text-[12px] font-semibold text-foreground">
+                  Solo pagas S/ 50 hoy. <span className="font-normal text-muted-foreground">El resto se define contigo al final de la sesión.</span>
+                </p>
+                <p className="text-[11px] text-muted-foreground/80">
+                  Confirmación previa vía Yape, Plin o transferencia bancaria.
+                </p>
+              </div>
+            </div>
+
+          </div>
+
+          {/* FASE 2: Proceso Continuo */}
+          <div className="bg-white rounded-3xl p-6 sm:p-8 md:p-10 border border-border/90 shadow-soft flex flex-col justify-between relative">
+            <div className="absolute -top-3.5 left-6 sm:left-8 bg-slate-100 text-foreground text-[11px] font-bold uppercase tracking-wider px-3.5 py-1 rounded-full border border-border">
+              Paso 2: Intervención Activa
+            </div>
+
+            <div>
+              <div className="flex items-center justify-between mb-3 mt-2">
+                <h3 className="text-2xl font-bold text-foreground">Programa de Enfoque y Acción</h3>
+                <span className="text-xs font-semibold px-3 py-1 bg-secondary text-secondary-foreground rounded-full flex items-center gap-1.5">
+                  <Calendar size={13} /> Frecuencia semanal
+                </span>
+              </div>
+
+              <p className="text-muted-foreground text-xs sm:text-sm leading-relaxed mb-6">
+                El proceso de cambio real. Aplicamos protocolos de TCC para transformar el diálogo interno, regular el estrés y consolidar rutinas que se sostengan en el tiempo.
+              </p>
+
+              <div className="mb-6">
+                <div className="flex items-baseline gap-2">
+                  <span className="text-3xl sm:text-4xl font-extrabold text-foreground">Desde S/ 65</span>
+                  <span className="text-xs text-muted-foreground font-medium">por sesión de seguimiento</span>
+                </div>
+                <p className="text-[11px] text-primary font-medium mt-1">
+                  Opción de sesión a sesión o tarifa preferencial por proceso completo de 6 sesiones.
+                </p>
+              </div>
+
+              <ul className="space-y-3 mb-8">
+                {[
+                  "Estructura mínima de 6 sesiones para consolidar cambios cognitivos y conductuales",
+                  "Reestructuración cognitiva aplicada a la autoexigencia y el sobrepensamiento",
+                  "Diseño ambiental y rutinas de sueño, foco y desconexión sin culpa",
+                  "Acompañamiento estructurado con revisión de avances sesión a sesión",
+                ].map((item, idx) => (
+                  <li key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-foreground">
+                    <Check className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="p-4 rounded-2xl bg-[#FFF9F2] border border-border/60 text-xs text-muted-foreground leading-relaxed flex items-start gap-3">
+              <ShieldCheck className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+              <div>
+                <strong className="text-foreground font-semibold block mb-0.5">Definición de plan</strong>
+                La cantidad exacta de sesiones y la modalidad de pago se acuerdan al cierre de tu Sesión de Claridad, según tus tiempos y objetivos prioritarios.
+              </div>
             </div>
           </div>
+
         </div>
 
-        {/* PASO 2: PROGRAMAS */}
-        <div>
-          <div className="flex items-center gap-4 mb-8 justify-center">
-            <span className="bg-slate-200 text-slate-600 w-8 h-8 rounded-full flex items-center justify-center font-bold">
-              2
-            </span>
-            <h3 className="text-2xl font-bold text-slate-500">
-              Continuidad del proceso
-            </h3>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {programas.map((plan, i) => (
-              <div
-                key={i}
-                className={`rounded-3xl p-8 border flex flex-col ${plan.highlight ? "bg-[#1A52C1] text-white border-[#1A52C1] shadow-lg" : "bg-white border-slate-200"}`}
-              >
-                {plan.badge && (
-                  <div className="bg-[#91DBF0] text-[#1A52C1] text-[10px] font-black uppercase px-2 py-1 rounded mb-4 self-start">
-                    {plan.badge}
-                  </div>
-                )}
-                <h4 className="text-xl font-bold">{plan.name}</h4>
-                <p
-                  className={`text-sm mb-4 ${plan.highlight ? "text-white/80" : "text-muted-foreground"}`}
-                >
-                  {plan.duration}
-                </p>
-                <div className="text-3xl font-black mb-6">{plan.price}</div>
-                <ul className="space-y-3 mb-8 flex-1">
-                  {plan.features.map((f, j) => (
-                    <li key={j} className="flex items-start gap-2.5">
-                      <Check
-                        className={`w-4 h-4 mt-1 ${plan.highlight ? "text-[#91DBF0]" : "text-[#1A52C1]"}`}
-                      />
-                      <span className="text-sm">{f}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* REFUERZO */}
-        <div className="mt-16 text-center text-muted-foreground text-sm italic">
-          * Sesiones de refuerzo disponibles para pacientes antiguos.
+        {/* Barra de Transparencia inferior */}
+        <div className="max-w-4xl mx-auto text-center border-t border-border/60 pt-6">
+          <p className="text-xs text-muted-foreground">
+            * Cada sesión se confirma con al menos 24 horas de anticipación. Flexibilidad para reprogramar avisando con anticipación sin costos adicionales.
+          </p>
         </div>
       </div>
     </section>

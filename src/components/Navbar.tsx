@@ -57,7 +57,7 @@ export default function Navbar() {
           rel="noopener noreferrer"
           className="hidden md:inline-flex items-center gap-2 bg-primary text-primary-foreground text-sm font-semibold px-5 py-2.5 rounded-full shadow-button hover:opacity-90 transition-all duration-200 hover:scale-105"
         >
-          Agendar
+          Escríbenos
         </a>
 
         {/* Mobile hamburger */}

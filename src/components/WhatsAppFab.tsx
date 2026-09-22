@@ -1,11 +1,38 @@
+import { useState, useEffect } from "react";
+
 export default function WhatsAppFab() {
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const heroElement = document.getElementById("inicio");
+      if (heroElement) {
+        const rect = heroElement.getBoundingClientRect();
+        // Cuando la parte inferior del hero sale de la vista superior (o llega a 0)
+        setVisible(rect.bottom <= 80);
+      } else {
+        // Respaldo en caso no encuentre el id por alguna razón
+        setVisible(window.scrollY > 400);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll(); // Verificación inicial
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <a
       href="https://wa.me/51900172786?text=Hola,%20quiero%20agendar%20una%20sesi%C3%B3n%20en%20Neuroa"
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Contactar por WhatsApp"
-      className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full flex items-center justify-center shadow-button hover:scale-110 active:scale-95 transition-transform duration-200"
+      className={`fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full flex items-center justify-center shadow-button transition-all duration-300 ease-in-out hover:scale-110 active:scale-95 ${
+        visible
+          ? "opacity-100 pointer-events-auto translate-y-0"
+          : "opacity-0 pointer-events-none translate-y-4"
+      }`}
       style={{ background: "#25D366" }}
     >
       <svg className="w-7 h-7" fill="white" viewBox="0 0 24 24">

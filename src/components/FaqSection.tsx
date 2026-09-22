@@ -1,84 +1,125 @@
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
+import { useState } from "react";
+import { ChevronDown, HelpCircle, MessageCircle } from "lucide-react";
 
-const faqs = [
+interface FAQItem {
+  pregunta: string;
+  respuesta: string;
+}
+
+const faqs: FAQItem[] = [
   {
-    q: "¿Cómo son las sesiones?",
-    a: "Las sesiones son 100% virtuales, realizadas a través de Google Meet. Antes de comenzar, te enviaremos un enlace privado. Solo necesitas un dispositivo con cámara, micrófono y conexión a internet. Son espacios confidenciales, cómodos y sin interrupciones.",
+    pregunta: "¿Cómo son las sesiones y qué necesito para conectarme?",
+    respuesta:
+      "Las sesiones son 100% virtuales y personalizadas, vía Google Meet o Zoom. Tienen una duración aproximada de 45 a 60 minutos. Solo necesitas un espacio privado y tranquilo, conexión a internet estable y un dispositivo con cámara y micrófono.",
   },
   {
-    q: "¿Es efectiva la terapia breve?",
-    a: "Sí. La terapia breve basada en TCC cuenta con amplio respaldo científico para una gran variedad de problemas como ansiedad, estrés, dificultades emocionales y más. La clave es trabajar con objetivos claros y herramientas concretas desde la primera sesión, lo que permite avances reales en menos tiempo.",
+    pregunta: "¿Es efectiva la psicoterapia online frente a la presencial?",
+    respuesta:
+      "Sí. La evidencia científica acumulada en Terapia Cognitivo-Conductual (TCC) demuestra que la modalidad virtual tiene exactamente la misma efectividad clínica que la presencial, con la ventaja de eliminar tiempos de traslado y permitirte trabajar tus herramientas directamente desde tu entorno cotidiano.",
   },
   {
-    q: "¿Cómo realizo el pago?",
-    a: "Aceptamos Yape, Plin y transferencias bancarias. La Sesión de Claridad se abona para confirmar tu espacio. En el caso de los programas, el pago es único al inicio para simplificar la gestión y centrarnos totalmente en tu proceso desde el primer día. Te enviamos los datos de pago al agendar por WhatsApp. ¡Es muy sencillo!",
+    pregunta: "¿Cómo realizo el pago de la Sesión de Claridad?",
+    respuesta:
+      "Para la primera sesión abonas únicamente el valor inicial de S/ 50. Puedes pagar de manera rápida y segura mediante Yape, Plin o transferencia bancaria nacional (BCP, BBVA, Interbank). Tras enviar tu comprobante por WhatsApp, tu horario queda 100% reservado.",
   },
   {
-    q: "¿Mis datos y conversaciones son confidenciales?",
-    a: "Absolutamente. Todos los datos personales y el contenido de las sesiones están protegidos bajo estrictos protocolos de seguridad y ética profesional. La confidencialidad es un pilar fundamental de nuestra práctica.",
+    pregunta: "¿Mis datos y conversaciones son confidenciales?",
+    respuesta:
+      "Absolutamente. Todo lo conversado en sesión y tus datos personales están protegidos por el secreto profesional y el código de ética del Colegio de Psicólogos del Perú (C.Ps.P.). La privacidad y confidencialidad son totales e inviolables.",
   },
   {
-    q: "¿Puedo cancelar o reprogramar una sesión?",
-    a: "Sí. Te pedimos que nos avises con al menos 24 horas de anticipación para cancelar o reprogramar sin costo. Entendemos que los imprevistos ocurren, y siempre buscamos la mejor solución para ti.",
+    pregunta: "¿Puedo cancelar o reprogramar una sesión si tengo un imprevisto?",
+    respuesta:
+      "Por supuesto. Entendemos que surgen imprevistos. Puedes reprogramar tu cita sin costo adicional avisando con un mínimo de 24 horas de anticipación para poder reasignar el horario.",
   },
   {
-    q: "¿Para qué tipo de problemas puedo pedir ayuda?",
-    a: "Trabajamos con ansiedad, estrés crónico, baja autoestima, dificultades para tomar decisiones, procrastinación, duelos, dificultades en relaciones y más. En la primera sesión evaluamos juntos tu situación y definimos si podemos ayudarte.",
+    pregunta: "¿Para qué tipo de dificultades o motivos puedo pedir ayuda?",
+    respuesta:
+      "El espacio está orientado a personas que experimentan sobrecarga mental, rumiación o sobrepensamiento, ansiedad, procrastinación recurrente, dificultad para gestionar su tiempo, o que buscan recuperar el orden y la constancia en su vida diaria.",
   },
 ];
 
 export default function FaqSection() {
+  const [abierto, setAbierto] = useState<number | null>(null);
+
+  const toggleAccordion = (idx: number) => {
+    setAbierto(abierto === idx ? null : idx);
+  };
+
   return (
-    <section
-      id="preguntas"
-      className="py-24 px-6"
-      style={{ background: "hsl(var(--cream-deep))" }}
-    >
-      <div className="max-w-3xl mx-auto">
-        {/* Header */}
-        <div className="mb-16 text-center">
-          <p className="text-xs font-bold tracking-widest uppercase text-primary mb-3">
-            Preguntas frecuentes
-          </p>
-          <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-foreground">
+    <section id="preguntas" className="py-20 px-4 sm:px-6 bg-[#1845a0] text-white relative overflow-hidden">
+      {/* Resplandor decorativo de fondo */}
+      <div
+        className="absolute -top-32 -left-32 w-96 h-96 rounded-full opacity-20 pointer-events-none"
+        style={{ background: "#8ab4ec", filter: "blur(100px)" }}
+      />
+      <div
+        className="absolute -bottom-32 -right-32 w-96 h-96 rounded-full opacity-15 pointer-events-none"
+        style={{ background: "#dbe9fb", filter: "blur(90px)" }}
+      />
+
+      <div className="max-w-3xl mx-auto relative">
+        {/* Cabecera de la sección */}
+        <div className="text-center mb-12">
+          <div className="inline-flex items-center gap-1.5 bg-white/10 text-[#dbe9fb] text-xs font-semibold px-3 py-1 rounded-full mb-3 border border-white/15">
+            <HelpCircle size={13} />
+            Preguntas Frecuentes
+          </div>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white mb-3">
             Resolvemos tus dudas
           </h2>
+          <p className="text-[#dbe9fb]/80 text-xs sm:text-base leading-relaxed max-w-lg mx-auto">
+            Todo lo que necesitas saber sobre el método, la modalidad de trabajo y el inicio de tu proceso.
+          </p>
         </div>
 
-        <Accordion type="single" collapsible className="space-y-3">
-          {faqs.map((faq, i) => (
-            <AccordionItem
-              key={i}
-              value={`item-${i}`}
-              className="bg-card border border-border rounded-2xl px-6 shadow-card data-[state=open]:shadow-soft transition-all"
-            >
-              <AccordionTrigger className="text-left font-semibold text-foreground hover:no-underline py-5 text-base">
-                {faq.q}
-              </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground leading-relaxed pb-5 text-sm">
-                {faq.a}
-              </AccordionContent>
-            </AccordionItem>
-          ))}
-        </Accordion>
+        {/* Acordeón de preguntas */}
+        <div className="space-y-3 mb-10">
+          {faqs.map((faq, idx) => {
+            const isOpen = abierto === idx;
+            return (
+              <div
+                key={idx}
+                className="bg-white rounded-2xl border border-white/20 overflow-hidden shadow-soft transition-all duration-200"
+              >
+                <button
+                  onClick={() => toggleAccordion(idx)}
+                  className="w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 transition-colors hover:bg-slate-50/80"
+                  aria-expanded={isOpen}
+                >
+                  <span className="text-sm sm:text-base font-bold text-foreground leading-snug">
+                    {faq.pregunta}
+                  </span>
+                  <ChevronDown
+                    size={18}
+                    className={`text-primary shrink-0 transition-transform duration-300 ${
+                      isOpen ? "rotate-180" : ""
+                    }`}
+                  />
+                </button>
 
-        {/* Bottom CTA */}
-        <div className="mt-12 text-center">
-          <p className="text-muted-foreground mb-4">
-            ¿Tienes más preguntas? Escríbenos directamente.
+                {isOpen && (
+                  <div className="px-4 sm:px-5 pb-4 pt-1 text-xs sm:text-sm text-muted-foreground leading-relaxed border-t border-slate-100 bg-slate-50/40">
+                    {faq.respuesta}
+                  </div>
+                )}
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Mini CTA final al pie de las preguntas */}
+        <div className="text-center pt-4 border-t border-white/15 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="text-xs sm:text-sm text-[#dbe9fb]/90">
+            ¿Tienes alguna consulta específica que no esté aquí?
           </p>
           <a
-            href="https://wa.me/51900172786?text=Hola,%20tengo%20una%20consulta%20sobre%20Neuroa"
+            href="https://wa.me/51900172786?text=Hola,%20tengo%20una%20duda%20sobre%20las%20sesiones"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-primary text-primary-foreground font-semibold px-8 py-4 rounded-full shadow-button hover:opacity-90 hover:scale-105 transition-all"
+            className="inline-flex items-center gap-2 bg-white text-primary font-semibold px-5 py-2.5 rounded-full text-xs sm:text-sm hover:bg-[#dbe9fb] transition-all shadow-sm"
           >
-            Consultar por WhatsApp
+            <MessageCircle size={15} /> Consultar por WhatsApp
           </a>
         </div>
       </div>

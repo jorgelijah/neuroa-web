@@ -1,22 +1,45 @@
 <!doctype html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Neuroa — Terapia práctica para una mente clara</title>
-    <meta name="description" content="Consultorio de psicología virtual. Sesiones breves y efectivas basadas en TCC y neurociencia. Herramientas útiles desde la primera consulta. Agenda desde S/ 50." />
-    <meta name="author" content="Neuroa" />
 
-    <meta property="og:title" content="Neuroa — Terapia práctica para una mente clara" />
-    <meta property="og:description" content="Psicología virtual basada en evidencia. Sesiones desde S/ 50. Agenda hoy por WhatsApp." />
-    <meta property="og:type" content="website" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Neuroa — Terapia práctica para una mente clara</title>
+  <meta name="description"
+    content="Psicología virtual basada en evidencia y TCC. Desactiva el sobrepensamiento, regula el estrés y recupera el orden mental. Sesión de Claridad inicial: S/ 50." />
+  <meta name="author" content="Psic. Jorge Escobedo — Neuroa" />
 
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@Neuroa" />
-  </head>
+  <meta property="og:title" content="Neuroa — Terapia práctica para una mente clara" />
+  <meta property="og:description"
+    content="Psicología virtual con TCC y neurociencia aplicada. Sesión de Claridad inicial por S/ 50. Agenda por WhatsApp." />
+  <meta property="og:type" content="website" />
 
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@Neuroa" />
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.tsx"></script>
+
+  <!-- Formulario espejo estático para captura de Netlify Forms -->
+  <form name="screening" data-netlify="true" netlify-honeypot="bot-field" hidden>
+    <input type="text" name="bot-field" />
+    <input type="text" name="nombre" />
+    <input type="text" name="codigo_pais" />
+    <input type="text" name="whatsapp" />
+    <input type="text" name="energia_matutina" />
+    <input type="text" name="sobrecarga_mental" />
+    <input type="text" name="procrastinacion" />
+    <input type="text" name="distraccion_digital" />
+    <input type="text" name="situacion_laboral" />
+    <input type="text" name="red_apoyo" />
+    <input type="text" name="actividad_fisica" />
+    <input type="text" name="alimentacion_rutina" />
+    <input type="text" name="autocuidado" />
+    <input type="text" name="prioridad_principal" />
+    <input type="text" name="nivel_sobrecarga" />
+  </form>
+</body>
+
 </html>
